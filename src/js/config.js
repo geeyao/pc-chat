@@ -14,7 +14,8 @@ export default class Config {
 
     //默认demo应用服务的端口是8888，地址配置为 http://${应用服务器地址}:8888 上线需要切换成https的地址。
     //static APP_SERVER = 'http://wildfirechat.cn:8888';
-    static APP_SERVER = 'https://app.wildfirechat.cn';
+    // static APP_SERVER = 'https://app.wildfirechat.cn';
+    static APP_SERVER = 'https://im.geeyao.com';
     
     static QR_CODE_PREFIX_PC_SESSION = "wildfirechat://pcsession/";
     // turn server 配置，可以添加多个

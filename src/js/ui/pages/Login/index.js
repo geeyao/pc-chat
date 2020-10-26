@@ -11,6 +11,7 @@ import axios from 'axios';
 import {connect} from '../../../platform'
 import ConnectionStatus from "../../../wfc/client/connectionStatus";
 import EventType from "../../../wfc/client/wfcEvent";
+import mock from './mock';
 
 @observer
 export default class Login extends Component {
@@ -30,8 +31,8 @@ export default class Login extends Component {
         let userId = localStorage.getItem("userId");
         if (!userId) {
             // 此前尚未登录过，需要手机端扫码登录
-            this.createPCLoginSession(null);
-            this.refreshQrCode();
+            // this.createPCLoginSession(null);
+            // this.refreshQrCode();
         } else {
             // 此前已登录过，显示此前登录的账号信息
             this.scanStatus = 2;
@@ -159,8 +160,15 @@ export default class Login extends Component {
                             {
                                 this.qrCode && (<img className={classes.portrait} src={this.qrCode}/>)
                             }
-                            <p>扫码登录野火IM</p>
-                            <p>野火IM PC端需要配合您的手机客户端登录使用</p>
+                            <p onClick={mock} style={{
+                                padding: 20,
+                                borderRadius: 5,
+                                border: "1px solid #eee"
+                                }}>
+                                点击创建群组并获取群成员列表
+                                <br />
+                                请在控制台中查看详情
+                            </p>
                         </div>
                     ) : (this.scanStatus === 1 ? (
                         <div className={classes.inner}>
